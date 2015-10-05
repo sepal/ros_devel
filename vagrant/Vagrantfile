@@ -38,12 +38,11 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, path: "setup.sh"
 
   # Virtual Box specific hardware configuration.
-  config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |v|
     host = RbConfig::CONFIG['host_os']
 
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
+    # Display the VirtualBox GUI
+    v.gui = true
 
     # Give VM 1/2 system memory & access to all cpu cores on the host
     if host =~ /darwin/
