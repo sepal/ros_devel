@@ -13,8 +13,7 @@ sudo rosdep init
 rosdep update
 
 # Environment setup
-echo "source /opt/ros/jade/setup.bash" >> ~/.bashrc
-source ~/.bashrc
+echo "source /opt/ros/jade/setup.bash" >> /home/vagrant/.bashrc
 
 source /opt/ros/jade/setup.bash
 
