@@ -1,5 +1,5 @@
 # ROS development enviroment
-Development enviroment for [ROS](http://www.ros.org/) for the course Mobile Robotik at the Vienna University of Technology.
+[ROS](http://www.ros.org/) Development enviroment for the course Mobile Robotik at the Vienna University of Technology.
 
 The box is based on Ubuntu 15.04 Vivid and installs ROS Jade accourding to the [wiki](http://wiki.ros.org/jade/Installation/Ubuntu). It will allow virtual box to use all your hosts cores and half of the memory. The gui is currently enabled, but can be easily turned of via the `v.gui` config in the Vagrant file.
 
