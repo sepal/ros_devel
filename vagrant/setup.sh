@@ -33,3 +33,7 @@ catkin_make
 
 echo "source $HOME/projects/catkin/mr2015ws/devel/setup.bash" >> ~/.bashrc
 chown -R vagrant:vagrant $HOME
+
+# Setup xfce
+echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
+sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
