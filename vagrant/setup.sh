@@ -1,20 +1,35 @@
+# Home folder
+HOME=/home/vagrant
+
 # Add ROS package server.
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 
 # Update package list.
-sudo apt-get update
+apt-get update
 
 # Install ROS.
-sudo apt-get install ros-jade-desktop-full -y
+apt-get install ros-jade-desktop-full -y
 
 # Initilialize rosdep.
-sudo rosdep init
+rosdep init
 rosdep update
 
 # Environment setup
-echo "source /opt/ros/jade/setup.bash" >> /home/vagrant/.bashrc
+echo "source /opt/ros/jade/setup.bash" >> $HOME/.bashrc
 
 source /opt/ros/jade/setup.bash
 
-sudo apt-get install python-rosinstall -y
+apt-get install python-rosinstall -y
+
+# Setup the course workspace
+mkdir -p $HOME/projects/catkin/mr2015ws/src
+
+tar -zxf /vagrant/tuw_mr2015-*.tar.gz -C ~/projects/catkin/mr2015ws/src/
+
+cd $HOME/projects/catkin/mr2015ws
+
+catkin_make
+
+echo "source $HOME/projects/catkin/mr2015ws/devel/setup.bash" >> ~/.bashrc
+chown -R vagrant:vagrant $HOME
